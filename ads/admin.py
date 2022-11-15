@@ -1,9 +1,10 @@
 from django.contrib import admin
 
-from ads.models import Categories, Ad, Location, User
+from ads.models import Ad, Category
+from users.models import User, Location
 
 
-admin.site.register(Categories)
+admin.site.register(Category)
 admin.site.register(Location)
 admin.site.register(Ad)
 admin.site.register(User)

@@ -1,5 +1,6 @@
 from django.core.management.base import BaseCommand
-from ads.models import Ad, Categories, Location, User
+from ads.models import Ad, Category
+from users.models import Location, User
 import json
 
 
@@ -7,7 +8,7 @@ class Command(BaseCommand):
     with open('datasets/category.json', 'r') as file:
         new_file = json.load(file)
     for i in new_file:
-        new_categories = Categories(
+        new_categories = Category(
             name=i['name'],
         )
         new_categories.save()
@@ -44,7 +45,7 @@ class Command(BaseCommand):
                 author_id=i['author_id'],
                 price=i['price'],
                 description=i['description'],
-                is_publisher=i['is_published'].lower().title(),
+                is_published=i['is_published'].lower().title(),
                 image=i['image'],
                 category_id=i['category_id'],
 
